@@ -1,0 +1,82 @@
+body {
+    font-family: sans-serif;
+    font-weight: 300;
+    background-color: #eaeaea;
+}
+
+#mount-point {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.note-app {
+    max-width: 960px;
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: lightblue;
+}
+
+.input {
+    width: 200px;
+    height: 25px;
+    text-align: center;
+    resize: none;
+    margin-bottom: 15px;
+    font-size: 14px;
+    border: none;
+    font-weight: 300;
+}
+
+.add-button {
+    width: 70px;
+    background-color: #44c767;
+    border: 1px solid #44c767;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 8px 8px;
+    margin-bottom: 15px;
+}
+
+.add-button:hover {
+    opacity: 0.6;
+}
+
+.note {
+    text-align: center;
+    width: 200px;
+    font-size: 16px;
+    height: auto;
+    background-color: yellow;
+    padding: 4px 0;
+    margin: 10px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.note:hover {
+    background-color: lightyellow;
+}
+
+.delete-note {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.delete-note:hover {
+    color: red;
+}
