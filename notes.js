@@ -18,12 +18,14 @@ var UsersGrid = React.createClass({
             <div>
                 {
                   this.props.notes.map(function(note){
+
                         return (
                             <User
                                 key={note.id}
                                 onDelete={onNoteDelete.bind(null, note)}>
                                 {note.name}
                             </User>
+
                         );
                     })
                 }
@@ -46,7 +48,7 @@ var UserEditor = React.createClass({
     },
 
     handleNoteAdd: function() {
-        if(!this.state.text) {return};
+                if(!this.state.text) {return};
         var newNote = {
             id: Date.now(),
             name: this.state.text
@@ -79,25 +81,34 @@ var UsersApp = React.createClass({
 
     getInitialState: function() {
         return {
-            notes: []
+            notes: [
+    {
+        id:0,
+        name: "Ivan",
+    },
+    {
+        id:1,
+        name: "Ira",
+    },
+    {
+        id:2,
+        name: "Vasya",
+    },
+    {
+        id:3,
+        name: "Anya",
+    }
+
+]
         };
     },
 
-    componentDidMount: function() {
-        var localNotes = JSON.parse(localStorage.getItem('notes'));
-        if (localNotes) {
-            this.setState({ notes: localNotes });
-        }
-    },
-
-    componentDidUpdate: function() {
-        this._updateLocalStorage();
-    },
-    
     handleNoteAdd: function(newNote) {
         var newNotes = this.state.notes.slice();
+
         newNotes.unshift(newNote);
         this.setState({ notes: newNotes });
+        console.log(newNotes);
     },
 
     handleNoteDelete: function(note) {
@@ -114,14 +125,12 @@ var UsersApp = React.createClass({
             <h2>Users App</h2>
                 <UserEditor onNoteAdd={this.handleNoteAdd} />
                 <UsersGrid notes={this.state.notes} onNoteDelete={this.handleNoteDelete} />
+
             </div>
+
         );
     },
 
-    _updateLocalStorage: function() {
-        var notes = JSON.stringify(this.state.notes);
-        localStorage.setItem('notes', notes);
-    }   
 });
 
 ReactDOM.render(
